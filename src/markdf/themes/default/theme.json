@@ -1,0 +1,18 @@
+{
+  "name": "default",
+  "palette": {
+    "bg": "#ffffff",
+    "text": "#0f172a",
+    "muted": "#64748b",
+    "primary": "#2563eb",
+    "border": "#e2e8f0",
+    "code_bg": "#0b1020"
+  },
+  "fonts": {
+    "sans": "PingFang SC, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "serif": "Songti SC, Noto Serif CJK SC, serif",
+    "mono": "SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace"
+  },
+  "code_style": "monokai"
+}
+

@@ -1,0 +1,12 @@
+h1, h2, h3 {
+  font-family: var(--md-font-serif);
+}
+
+blockquote {
+  border-left-color: var(--md-primary);
+}
+
+thead th {
+  background: color-mix(in srgb, var(--md-primary) 10%, var(--md-bg));
+}
+

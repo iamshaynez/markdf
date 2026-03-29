@@ -1,0 +1,13 @@
+h1, h2, h3 {
+  font-family: var(--md-font-serif);
+}
+
+strong {
+  font-weight: 650;
+}
+
+img {
+  max-width: 100%;
+  border-radius: calc(var(--md-radius) - 2px);
+}
+

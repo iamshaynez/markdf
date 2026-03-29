@@ -1,0 +1,148 @@
+:root {
+  --md-radius: 12px;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 16mm;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background: var(--md-bg);
+  color: var(--md-text);
+  font-family: var(--md-font-sans);
+  font-size: 11.2pt;
+  line-height: 1.62;
+}
+
+.md-page {
+  width: 170mm;
+  margin: 0 auto;
+}
+
+.md-body {
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 26pt;
+  letter-spacing: -0.02em;
+  margin: 18pt 0 12pt;
+}
+
+h2 {
+  font-size: 18pt;
+  margin: 18pt 0 10pt;
+}
+
+h3 {
+  font-size: 14pt;
+  margin: 14pt 0 8pt;
+}
+
+p {
+  margin: 0 0 10pt;
+  orphans: 3;
+  widows: 3;
+}
+
+a {
+  color: var(--md-primary);
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--md-border);
+  margin: 16pt 0;
+}
+
+blockquote {
+  margin: 12pt 0;
+  padding: 10pt 12pt;
+  border-left: 4px solid var(--md-primary);
+  background: color-mix(in srgb, var(--md-primary) 8%, var(--md-bg));
+  border-radius: var(--md-radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+ul, ol {
+  margin: 0 0 10pt 18pt;
+}
+
+li {
+  margin: 4pt 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 12pt 0;
+  border: 1px solid var(--md-border);
+  border-radius: var(--md-radius);
+  overflow: hidden;
+}
+
+thead th {
+  background: color-mix(in srgb, var(--md-border) 20%, var(--md-bg));
+  font-weight: 600;
+}
+
+th, td {
+  text-align: left;
+  padding: 8pt 10pt;
+  border-bottom: 1px solid var(--md-border);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+pre {
+  background: var(--md-code-bg);
+  color: #e5e7eb;
+  padding: 10pt 12pt;
+  border-radius: var(--md-radius);
+  overflow: auto;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+code {
+  font-family: var(--md-font-mono);
+  font-size: 10pt;
+}
+
+p code, li code {
+  background: color-mix(in srgb, var(--md-border) 18%, var(--md-bg));
+  padding: 1pt 4pt;
+  border-radius: 6px;
+}
+
+.footnote {
+  color: var(--md-muted);
+  font-size: 9.6pt;
+}
+
+.footnotes {
+  border-top: 1px solid var(--md-border);
+  margin-top: 18pt;
+  padding-top: 10pt;
+}
+
