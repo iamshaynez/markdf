@@ -1,19 +1,39 @@
-\:root {
-  --md-heading-accent: #1bbf6b;
+:root {
+  --md-radius: 11px;
+  --md-accent-jade: #0f766e;
+  --md-accent-coral: #e11d48;
+  --md-heading-underline: color-mix(in srgb, var(--md-primary) 16%, var(--md-border));
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
 h1, h2, h3 {
   font-family: var(--md-font-serif);
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: 30pt;
-  margin: 24pt 0 16pt;
+  margin: 20pt 0 16pt;
+  padding-bottom: 10pt;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56pt;
+  height: 3pt;
+  background: linear-gradient(90deg, var(--md-primary), var(--md-accent-jade));
+  border-radius: 2pt;
 }
 
 h2 {
-  font-size: 20pt;
   margin: 22pt 0 14pt;
   padding-left: 12pt;
   position: relative;
@@ -23,16 +43,73 @@ h2::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.18em;
+  top: 0.22em;
   width: 4pt;
-  height: calc(100% - 0.36em);
-  background: var(--md-heading-accent);
+  height: calc(100% - 0.44em);
+  background: linear-gradient(180deg, var(--md-primary), var(--md-accent-coral));
   border-radius: 2pt;
 }
 
 h3 {
-  font-size: 15pt;
   margin: 16pt 0 10pt;
+}
+
+h3::after {
+  content: "";
+  display: block;
+  margin-top: 6pt;
+  width: 22pt;
+  height: 1px;
+  background: var(--md-heading-underline);
+}
+
+p {
+  margin: 0 0 14pt;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+p + p {
+  text-indent: 2em;
+}
+
+ul, ol {
+  margin: 0 0 12pt 18pt;
+}
+
+li {
+  margin: 5pt 0;
+}
+
+a {
+  color: var(--md-primary);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--md-primary) 28%, transparent);
+}
+
+blockquote {
+  border-left-color: var(--md-accent-jade);
+  background: color-mix(in srgb, var(--md-accent-jade) 7%, var(--md-bg));
+}
+
+blockquote p {
+  margin-bottom: 10pt;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+thead th {
+  background: color-mix(in srgb, var(--md-primary) 10%, var(--md-bg));
+}
+
+tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--md-border) 14%, var(--md-bg));
+}
+
+p code, li code {
+  border: 1px solid color-mix(in srgb, var(--md-border) 55%, transparent);
 }
 
 strong {
@@ -40,6 +117,5 @@ strong {
 }
 
 img {
-  max-width: 100%;
   border-radius: calc(var(--md-radius) - 2px);
 }
