@@ -1,5 +1,38 @@
+\:root {
+  --md-heading-accent: #1bbf6b;
+}
+
 h1, h2, h3 {
   font-family: var(--md-font-serif);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 30pt;
+  margin: 24pt 0 16pt;
+}
+
+h2 {
+  font-size: 20pt;
+  margin: 22pt 0 14pt;
+  padding-left: 12pt;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.18em;
+  width: 4pt;
+  height: calc(100% - 0.36em);
+  background: var(--md-heading-accent);
+  border-radius: 2pt;
+}
+
+h3 {
+  font-size: 15pt;
+  margin: 16pt 0 10pt;
 }
 
 strong {
@@ -10,4 +43,3 @@ img {
   max-width: 100%;
   border-radius: calc(var(--md-radius) - 2px);
 }
-
