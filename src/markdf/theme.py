@@ -85,37 +85,40 @@ def load_theme(*, theme_name: str, theme_dir: Optional[Path] = None) -> Theme:
 
 def init_theme_skeleton(target_dir: Path, *, name: str = "my-theme") -> None:
     target_dir.mkdir(parents=True, exist_ok=True)
+    raw_theme = {
+        "name": name,
+        "palette": {
+            "bg": "#ffffff",
+            "text": "#111827",
+            "muted": "#6b7280",
+            "primary": "#2563eb",
+            "border": "#e5e7eb",
+            "code_bg": "#0b1020",
+        },
+        "fonts": {
+            "sans": "PingFang SC, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+            "serif": "Songti SC, Noto Serif CJK SC, serif",
+            "mono": "SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace",
+        },
+        "code_style": "monokai",
+    }
     (target_dir / "theme.json").write_text(
         json.dumps(
-            {
-                "name": name,
-                "palette": {
-                    "bg": "#ffffff",
-                    "text": "#111827",
-                    "muted": "#6b7280",
-                    "primary": "#2563eb",
-                    "border": "#e5e7eb",
-                    "code_bg": "#0b1020",
-                },
-                "fonts": {
-                    "sans": "PingFang SC, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-                    "serif": "Songti SC, Noto Serif CJK SC, serif",
-                    "mono": "SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace",
-                },
-                "code_style": "monokai",
-            },
+            raw_theme,
             ensure_ascii=False,
             indent=2,
         )
         + "\n",
         encoding="utf-8",
     )
-    (target_dir / "style.css").write_text(
-        """
+    style_css = """
 :root {
   --md-radius: 10px;
 }
-""".lstrip(),
-        encoding="utf-8",
-    )
+""".lstrip()
+    (target_dir / "style.css").write_text(style_css, encoding="utf-8")
 
+    from .theme_preview import build_theme_preview_html
+
+    preview_html = build_theme_preview_html(_build_theme(raw_theme, style_css))
+    (target_dir / "preview.html").write_text(preview_html, encoding="utf-8")
